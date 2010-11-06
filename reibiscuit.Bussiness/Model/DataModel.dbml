@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="reibiscui" Class="DataModelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=APC-VIRTUALPC\SQLEXPRESS;Initial Catalog=reibiscui;Integrated Security=True;Pooling=False" SettingsObjectName="reibiscuit.Bussiness.Properties.Settings" SettingsPropertyName="reibiscuiConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Cidade" Member="Cidades">
+    <Type Name="Cidade">
+      <Column Name="Nome" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="IdUf" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdCidade" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Cidade_Endereco" Member="Enderecos" ThisKey="IdCidade" OtherKey="IdCidade" Type="Endereco" />
+      <Association Name="Uf_Cidade" Member="Uf" ThisKey="IdUf" OtherKey="IdUf" Type="Uf" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Cpf" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Usuario_Endereco" Member="Enderecos" ThisKey="IdUsuario" OtherKey="IdUsuario" Type="Endereco" />
+      <Association Name="Usuario_Pedido" Member="Pedidos" ThisKey="IdUsuario" OtherKey="IdUsuario" Type="Pedido" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Endereco" Member="Enderecos">
+    <Type Name="Endereco">
+      <Column Name="Endereco" Member="Endereco1" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Numero" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Complemento" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Bairro" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="IdCidade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdEndereco" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Endereco_Pedido" Member="Pedidos" ThisKey="IdEndereco" OtherKey="IdEndereco" Type="Pedido" />
+      <Association Name="Cidade_Endereco" Member="Cidade" ThisKey="IdCidade" OtherKey="IdCidade" Type="Cidade" IsForeignKey="true" />
+      <Association Name="Usuario_Endereco" Member="Usuario" ThisKey="IdUsuario" OtherKey="IdUsuario" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemPedido" Member="ItemPedidos">
+    <Type Name="ItemPedido">
+      <Column Name="Quantidade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Preco" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Informacoes" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IdPedido" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Pedido_ItemPedido" Member="Pedido" ThisKey="IdPedido" OtherKey="IdPedido" Type="Pedido" IsForeignKey="true" />
+      <Association Name="Produto_ItemPedido" Member="Produto" ThisKey="IdProduto" OtherKey="IdProduto" Type="Produto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pais" Member="Pais">
+    <Type Name="Pai">
+      <Column Name="Nome" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="IdPais" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Pai_Uf" Member="Ufs" ThisKey="IdPais" OtherKey="IdPais" Type="Uf" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pedido" Member="Pedidos">
+    <Type Name="Pedido">
+      <Column Name="Detalhes" Type="System.String" DbType="VarChar(140) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Data" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdPedido" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DataEnvio" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdEndereco" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Pedido_ItemPedido" Member="ItemPedidos" ThisKey="IdPedido" OtherKey="IdPedido" Type="ItemPedido" />
+      <Association Name="Endereco_Pedido" Member="Endereco" ThisKey="IdEndereco" OtherKey="IdEndereco" Type="Endereco" IsForeignKey="true" />
+      <Association Name="Usuario_Pedido" Member="Usuario" ThisKey="IdUsuario" OtherKey="IdUsuario" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Uf" Member="Ufs">
+    <Type Name="Uf">
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sigla" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="IdPais" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdUf" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Uf_Cidade" Member="Cidades" ThisKey="IdUf" OtherKey="IdUf" Type="Cidade" />
+      <Association Name="Pai_Uf" Member="Pai" ThisKey="IdPais" OtherKey="IdPais" Type="Pai" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Categoria" Member="Categorias">
+    <Type Name="Categoria">
+      <Column Name="IdCategoria" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Association Name="Categoria_Produto" Member="Produtos" ThisKey="IdCategoria" OtherKey="IdCategoria" Type="Produto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Produto" Member="Produtos">
+    <Type Name="Produto">
+      <Column Name="Preco" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Disponibilidade" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QuantidadeEstoque" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="IdCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Produto_ItemPedido" Member="ItemPedidos" ThisKey="IdProduto" OtherKey="IdProduto" Type="ItemPedido" />
+      <Association Name="Produto_Imagem" Member="Imagems" ThisKey="IdProduto" OtherKey="IdProduto" Type="Imagem" />
+      <Association Name="Categoria_Produto" Member="Categoria" ThisKey="IdCategoria" OtherKey="IdCategoria" Type="Categoria" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Imagem" Member="Imagems">
+    <Type Name="Imagem">
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoImagem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdImagem" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Produto_Imagem" Member="Produto" ThisKey="IdProduto" OtherKey="IdProduto" Type="Produto" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

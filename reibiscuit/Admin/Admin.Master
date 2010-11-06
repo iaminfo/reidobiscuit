@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="reibiscuit.Admin.Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Rei do Biscuit</title>
+    <script src="../js/jquery.js" type="text/javascript"></script>   
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h1><a href="~/Default.aspx" title="Rei do Biscuit">Rei do Biscuit</a></h1>                   
+    </div>
+    <!-- Menu -->
+    <asp:Menu ID="mAdmin" runat="server" Orientation="Horizontal" 
+        RenderingMode="List">
+        <Items>
+            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inicio" Value="Inicio"></asp:MenuItem>            
+            <asp:MenuItem Text="Produtos" Value="Produtos" NavigateUrl="~/Admin/ListarProdutos.aspx"></asp:MenuItem>            
+        </Items>
+    </asp:Menu>
+    <!-- Menu -->
+    <!-- Mensagens -->
+    <div id="divMensagem" runat="server"></div>
+    <!-- Mensagens -->
+    <div>        
+        <!-- Main -->        
+        <asp:ContentPlaceHolder ID="Main" runat="server">
+        </asp:ContentPlaceHolder>        
+        <!-- Main -->
+    </div>
+    <div>
+        <asp:ContentPlaceHolder ID="Footer" runat="server">
+            
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
