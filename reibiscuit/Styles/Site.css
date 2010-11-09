@@ -86,17 +86,13 @@ first child of the left and right table columns */
 /* PRIMARY LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
 
-.page
-{
-    width: 960px;
-    background-color: #fff;
-    margin: 20px auto 0px auto;
-    border: 1px solid #496077;
-}
+
 
 .header
 {
-    position: relative;
+    position: absolute;
+    top:0px;
+    left:0px;
     margin: 0px;
     padding: 0px;
     background: #4b6c9e;
@@ -110,8 +106,7 @@ first child of the left and right table columns */
     padding: 0px 0px 0px 20px;
     color: #f9f9f9;
     border: none;
-    line-height: 2em;
-    font-size: 2em;
+     
 }
 
 .main
@@ -138,7 +133,10 @@ first child of the left and right table columns */
     line-height: normal;
 }
 
-
+.esquerda
+{
+    float:left;
+}
 /* TAB MENU   
 ----------------------------------------------------------*/
 
@@ -159,6 +157,7 @@ div.menu ul
     margin: 0px;
     padding: 0px;
     width: auto;
+    
 }
 
 div.menu ul li a, div.menu ul li a:visited
@@ -181,6 +180,47 @@ div.menu ul li a:hover
 }
 
 div.menu ul li a:active
+{
+    background-color: #465c71;
+    color: #cfdbe6;
+    text-decoration: none;
+}
+
+div.subMenu
+{
+    padding: 4px 0px 4px 8px;
+    
+}
+
+div.subMenu ul
+{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+    
+}
+
+div.subMenu ul li a, div.menu ul li a:visited
+{
+    background-color: #465c71;
+    border: 1px #4e667d solid;
+    color: #dde4ec;
+    display: block;
+    line-height: 1.35em;
+    padding: 4px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+div.subMenu ul li a:hover
+{
+    background-color: #bfcbd6;
+    color: #465c71;
+    text-decoration: none;
+}
+
+div.subMenu ul li a:active
 {
     background-color: #465c71;
     color: #cfdbe6;
@@ -249,8 +289,21 @@ div.accountInfo
     display: block;
     float: left;
     text-align: left;
-    width: auto;
+    width: auto; 
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    
 }
+
+.title h1 img
+{
+   top:0px;
+    left:0px;    
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    
+}
+
 
 .loginDisplay
 {
@@ -259,6 +312,9 @@ div.accountInfo
     text-align: right;
     padding: 10px;
     color: White;
+    position:absolute;
+    left:10px;
+    top:5px;
 }
 
 .loginDisplay a:link
