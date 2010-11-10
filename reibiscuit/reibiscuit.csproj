@@ -87,8 +87,6 @@
     <Content Include="Imagem\florzinhas_albuns.jpg" />
     <Content Include="Imagem\fluflu_albuns.jpg" />
     <Content Include="Imagem\noivinhos_albuns.jpg" />
-    <Content Include="Inicio.aspx" />
-    <Content Include="InicioProdutos.aspx" />
     <Content Include="js\jquery.iaminfo.js" />
     <Content Include="js\imgpreview.min.0.22.jquery.js" />
     <Content Include="js\jqImagePreview.js" />
@@ -96,6 +94,9 @@
     <Content Include="js\jquery-1.4.1.js" />
     <Content Include="js\jquery-1.4.1.min.js" />
     <Content Include="js\jquery.js" />
+    <Content Include="ListarProdutos.aspx" />
+    <Content Include="ProdutosAlbum.aspx" />
+    <Content Include="Styles\ReiBiscuit.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -183,19 +184,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Inicio.aspx.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
+    <Compile Include="ListarProdutos.aspx.cs">
+      <DependentUpon>ListarProdutos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inicio.aspx.designer.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
+    <Compile Include="ListarProdutos.aspx.designer.cs">
+      <DependentUpon>ListarProdutos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InicioProdutos.aspx.cs">
-      <DependentUpon>InicioProdutos.aspx</DependentUpon>
+    <Compile Include="ProdutosAlbum.aspx.cs">
+      <DependentUpon>ProdutosAlbum.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="InicioProdutos.aspx.designer.cs">
-      <DependentUpon>InicioProdutos.aspx</DependentUpon>
+    <Compile Include="ProdutosAlbum.aspx.designer.cs">
+      <DependentUpon>ProdutosAlbum.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

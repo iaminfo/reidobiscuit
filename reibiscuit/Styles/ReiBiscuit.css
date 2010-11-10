@@ -1,0 +1,41 @@
+﻿body 
+{
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+div.HeadLoginView
+{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 1024px;
+}
+
+a:link, a:visited
+{
+    color: #003300;
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: #339933;
+    text-decoration: none;
+}
+
+a:active
+{
+    color: #003300;
+}
+
+.menuLateral
+{
+    padding: 10px;
+    margin: 10px;
+}
+
+td.main
+{
+    vertical-align: top;
+    
+}

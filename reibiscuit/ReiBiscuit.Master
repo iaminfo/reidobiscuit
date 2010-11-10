@@ -5,38 +5,67 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Rei do Biscuit</title>
-    <link href="Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/ReiBiscuit.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="page">
-        <div class="header">
-            <div class="title">
-                <h1>
-                    <img src="Imagem/Bunner_Biscuit.jpg" alt="Rei do Biscuit" />
-                </h1>
-            </div>
-            <div class="loginDisplay">
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <thead>
+        <tr>
+            <th colspan="2" align="left">
+            <div class="HeadLoginView">
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
                         [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
                     </AnonymousTemplate>
                     <LoggedInTemplate>
-                        Bem vindo! <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
                         [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
                     </LoggedInTemplate>
                 </asp:LoginView>
-            </div>
-        </div>
+                </div>
+                <img alt="Rei do Biscuit" src="Imagem/Bunner_Biscuit.jpg"  />
+                
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td width="10%" >
+                <asp:Menu ID="menuLateral" runat="server" CssClass="menuLateral">
+                    <Items>
+                        <asp:MenuItem Text="Arranjos" Value="Arranjos" NavigateUrl="ListarProdutos.aspx?IdCategoria=1"></asp:MenuItem>
+                        <asp:MenuItem Text="Cestinhas" Value="Cestinhas"></asp:MenuItem>
+                        <asp:MenuItem Text="Noivinhas" Value="Noivinhas"></asp:MenuItem>
+                        <asp:MenuItem Text="Estrelinhas" Value="Estrelinhas"></asp:MenuItem>
+                        <asp:MenuItem Text="Florzinhas" Value="Florzinhas"></asp:MenuItem>
+                        <asp:MenuItem Text="Bonequinhas" Value="Bonequinhas"></asp:MenuItem>
+                        <asp:MenuItem Text="Biscuizinhos" Value="Biscuizinhos"></asp:MenuItem>
+                        <asp:MenuItem Text="Flu Flu" Value="Flu Flu"></asp:MenuItem>
+                        <asp:MenuItem Text="Diversos" Value="Diversos"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+               
+            </td>
+            <td class="main" align="left">
+                 <div id="divMensagem" runat="server"></div>
+                 <asp:ContentPlaceHolder ID="main" runat="server">
+                     
         
-    <div class="main">
-        <asp:ContentPlaceHolder ID="Main" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <asp:ContentPlaceHolder ID="footer" runat="server">
         
-        </asp:ContentPlaceHolder>
-    </div>
-    </div>
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        </tbody>
+    </table>    
     </form>
 </body>
 </html>

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace reibiscuit
 {
-    public partial class InicioProdutos : System.Web.UI.Page
+    public partial class ProdutosAlbum : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
