@@ -125,7 +125,7 @@
         <elementListCompartment Id="21d8df17-6bf3-440a-9574-92bb8e657db9" absoluteBounds="0.64000000000000012, 5.835, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4 : 6.08742390950521); (2.625 : 6.08742390950521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4 : 6.08742390950521); (2.625 : 6.08742390950521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataModelDataContext/Produto/Produto_Imagem" />
       <nodes>
         <classShapeMoniker Id="9bd88539-d578-48c1-8007-39e9d7830e43" />
